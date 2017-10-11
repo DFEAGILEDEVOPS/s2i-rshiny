@@ -1,0 +1,18 @@
+#!/bin/bash -e
+#
+# S2I assemble script for the 'rshiny-centos7' image.
+# The 'assemble' script builds your application source ready to run.
+#
+# For more information refer to the documentation:
+#  https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
+#
+
+# TODO restore the rlib and packrat incremental files
+
+# By default the s2i build places the application source in /tmp/src directory.
+echo "---> Installing application source"
+cp -Rf /tmp/src/. ./
+
+echo "---> Running packrat bootstrap"
+R -e "0" --args --bootstrap-packrat
+
