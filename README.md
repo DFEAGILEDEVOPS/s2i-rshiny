@@ -1,10 +1,18 @@
 
 # RShiny s2i image
 
+First install the s2i tooling from https://github.com/openshift/source-to-image/releases
+
 Build this builder: 
 
 ```
 docker build -t simonmassey/s2i-rshiny -f Dockerfile.centos7 . 
+```
+
+Build a test hello world app with thist builder
+
+```
+s2i build test/test-app/  simonmassey/s2i-rshiny:latest sample-app
 ```
 
 Build a real app with this builder: 
