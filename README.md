@@ -28,5 +28,5 @@ http://localhost:3838
 
 ### TODO 
 
-[_] have save-artifacts copy forward the rlib and packrat for incremental builds
+[_] try packrat::bundle()//unbundle() with save-artifacts to copy forward deps for incremental builds
 [_] create templates to use this on Openshift v3 Pro
