@@ -40,7 +40,7 @@ Explore the real app:
 http://localhost:3838
 ```
 
-Note that this image supports incremental builds. If you do two builds with the same output name the second build should find the packrat/lib folder from the first build. This means that 
+Note that this image supports incremental builds. If you do two builds with the same output name the second build should find the packrat/lib folder from the first build. This means that if you have only changed your R source code the second build should be a lot faster as it does not need to download all the dependencies. If you have changed your dependencies you may need to run without `--incremental` to force an update to the dependencies.  
 
 ### TODO 
 
