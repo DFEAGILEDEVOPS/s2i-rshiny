@@ -22,7 +22,8 @@ If you have changed your packrat dependencies you many need to run without incre
 Build a real app with this builder (note the use of incremental build): 
 
 ```
- s2i build https://github.com/DFEAGILEDEVOPS/schools-workforce-benchmarking.git simonmassey/s2i-rshiny:latest schools-workforce-benchmarking
+ s2i build https://github.com/DFEAGILEDEVOPS/schools-workforce-benchmarking.git \
+      simonmassey/s2i-rshiny:latest schools-workforce-benchmarking
 ```
 
 If you have changed your packrat dependencies you many need to run without incremental build. 
