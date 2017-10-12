@@ -12,7 +12,7 @@ docker build -t simonmassey/s2i-rshiny -f Dockerfile.centos7 .
 Build a test hello world app with thist builder
 
 ```
-s2i build test/test-app/  simonmassey/s2i-rshiny:latest sample-app
+s2i build test/test-app/ simonmassey/s2i-rshiny:latest sample-app
 ```
 
 Build a real app with this builder: 
@@ -36,5 +36,5 @@ http://localhost:3838
 
 ### TODO 
 
-[_] try packrat::bundle()//unbundle() with save-artifacts to copy forward deps for incremental builds
+[_] try save-artifacts to copy forward deps for incremental builds
 [_] create templates to use this on Openshift v3 Pro

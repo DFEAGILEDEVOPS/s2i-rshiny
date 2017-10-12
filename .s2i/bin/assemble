@@ -7,8 +7,6 @@
 #  https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
 #
 
-# TODO restore the rlib and packrat incremental files
-
 # By default the s2i build places the application source in /tmp/src directory.
 echo "---> Installing application source"
 cp -Rf /tmp/src/. ./
