@@ -33,11 +33,16 @@ RUN localedef -i en_US -f UTF-8 en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 RUN mkdir -p /var/lib/shiny-server/bookmarks && \
-  chown shiny:0 /var/lib/shiny-server/bookmarks && \
+  chown default:0 /var/lib/shiny-server/bookmarks && \
   chmod g+wrX /var/lib/shiny-server/bookmarks && \
   mkdir -p /var/log/shiny-server && \
-  chown shiny:0 /var/log/shiny-server && \
-  chmod g+wrX /var/log/shiny-server
+  chown default:0 /var/log/shiny-server && \
+  chmod g+wrX /var/log/shiny-server 
+
+## Also touch the packrat folder which is backed up and restored between incremental builds (use s2i with --incremental)
+RUN mkdir -p /opt/app-root/src/packrat/ && \
+  chown default:0 /opt/app-root/src/packrat/ && \
+  chmod g+wrX /opt/app-root/src/packrat/
 
 # Drop the root user and make the content of /opt/app-root owned by user 1001
 RUN chown -R 1001:1001 /opt/app-root

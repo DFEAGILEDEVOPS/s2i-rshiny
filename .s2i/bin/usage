@@ -1,12 +1,14 @@
 #!/bin/bash -e
 
 cat <<EOF
-This is the rshiny-centos7 S2I image:
+This is the rshiny-centos7 S2I image. 
 To use it, install S2I: https://github.com/openshift/source-to-image
 
-Sample invocation:
+Sample invocation (note the use of incremental so the second time you build packrat deps should not need to be downloaded):
 
-s2i build https://github.com/DFEAGILEDEVOPS/schools-workforce-benchmarking.git rshiny-centos7 sample-app
+s2i build https://github.com/DFEAGILEDEVOPS/schools-workforce-benchmarking.git rshiny-centos7 sample-app --incremental
+
+Note if you have changed your dependencies you may have to build without the incremental flag to force updates. 
 
 You can then run the resulting image via:
 docker run -p 3838:3838 sample-app

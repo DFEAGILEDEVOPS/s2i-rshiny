@@ -7,6 +7,13 @@
 #  https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
 #
 
+# restore the local R_LIB copied from last incremental build https://docs.openshift.com/container-platform/3.6/creating_images/s2i.html#s2i-scripts
+R_LIB=/opt/app-root/src/packrat/
+if [ "$(ls /tmp/artifacts/opt/app-root/src/packrat/ 2>/dev/null)" ]; then
+    echo "---> Restoring $R_LIB"
+    cp -rf /tmp/artifacts/opt/app-root/src/packrat/* $R_LIB
+fi
+
 # By default the s2i build places the application source in /tmp/src directory.
 echo "---> Installing application source"
 cp -Rf /tmp/src/. ./

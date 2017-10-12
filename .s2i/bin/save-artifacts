@@ -1,1 +1,8 @@
-# TODO copy forward the local R_LIB ? 
+# copy forward the local R_LIB
+
+R_LIB=/opt/app-root/src/packrat
+
+if [ -d $R_LIB ]; then
+    # all deps libs contents to tar stream
+    tar cf - $R_LIB
+fi
