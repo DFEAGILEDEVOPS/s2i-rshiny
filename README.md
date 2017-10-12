@@ -9,7 +9,7 @@ Build this builder:
 docker build -t simonmassey/s2i-rshiny -f Dockerfile.centos7 . 
 ```
 
-Build a test hello world app with thist builder
+Build a test hello world app with this builder
 
 ```
 s2i build test/test-app/ simonmassey/s2i-rshiny:latest sample-app
