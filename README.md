@@ -42,6 +42,8 @@ http://localhost:3838
 
 Note that this image supports incremental builds. If you do two builds with the same output name the second build should find the packrat/lib folder from the first build. This means that if you have only changed your R source code the second build should be a lot faster as it does not need to download all the dependencies. If you have changed your dependencies you may need to run without `--incremental` to force an update to the dependencies.  
 
-### TODO 
+Deploy your own R Shiny website onto Openshift V3 using this s2i image: 
 
-[_] create templates to use this on Openshift v3 Pro
+```
+oc new-app simonmassey/s2i-rshiny:latest~https://github.com/DFEAGILEDEVOPS/schools-workforce-benchmarking.git
+```
