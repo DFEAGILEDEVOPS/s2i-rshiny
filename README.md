@@ -8,7 +8,7 @@ First install the s2i tooling from https://github.com/openshift/source-to-image/
 Build this builder: 
 
 ```
-docker build -t simonmassey/s2i-rshiny -f Dockerfile.centos7 . 
+docker build -t simonmassey/s2i-rshiny -f Dockerfile . 
 ```
 
 Build a test hello world app with this builder (note the use of incremental build):
