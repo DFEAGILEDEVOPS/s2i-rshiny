@@ -45,5 +45,5 @@ Note that this image supports incremental builds. If you do two builds with the 
 Deploy your own R Shiny website onto Openshift V3 using this s2i image: 
 
 ```
-oc new-app simonmassey/s2i-rshiny:latest~https://github.com/DFEAGILEDEVOPS/schools-workforce-benchmarking.git
+oc new-app dfeagiledevops/s2i-rshiny~https://github.com/DFEAGILEDEVOPS/schools-workforce-benchmarking.git
 ```
