@@ -8,13 +8,13 @@ First install the s2i tooling from https://github.com/openshift/source-to-image/
 Build this builder: 
 
 ```
-docker build -t simonmassey/s2i-rshiny -f Dockerfile . 
+docker build -t dfeagiledevops/s2i-rshiny -f Dockerfile . 
 ```
 
 Build a test hello world app with this builder (note the use of incremental build):
 
 ```
-s2i build test/test-app/ simonmassey/s2i-rshiny:latest sample-app --incremental
+s2i build test/test-app/ dfeagiledevops/s2i-rshiny:latest sample-app --incremental
 ```
 
 If you have changed your packrat dependencies you many need to run without incremental build. 
@@ -23,7 +23,7 @@ Build a real app with this builder (note the use of incremental build):
 
 ```
  s2i build https://github.com/DFEAGILEDEVOPS/schools-workforce-benchmarking.git \
-      simonmassey/s2i-rshiny:latest schools-workforce-benchmarking --incremental
+      dfeagiledevops/s2i-rshiny:latest schools-workforce-benchmarking --incremental
 ```
 
 If you have changed your packrat dependencies you many need to run without incremental build. 
