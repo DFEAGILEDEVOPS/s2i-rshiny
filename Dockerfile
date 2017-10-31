@@ -54,7 +54,7 @@ RUN chmod -R u+x ${APP_ROOT}/bin && \
     chmod -R g=u ${APP_ROOT} /etc/passwd
 
 # openshift best practice is to use a number not a name this is user shiny
-USER 998
+USER 1001
 
 ### Wrapper to allow user name resolution openshift will actually use a random user number so you need group permissions
 ### https://github.com/RHsyseng/container-rhel-examples/blob/master/starter-arbitrary-uid/Dockerfile.centos7
