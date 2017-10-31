@@ -44,14 +44,19 @@ RUN mkdir -p /opt/app-root/src/packrat/ && \
   chown default:0 /opt/app-root/src/packrat/ && \
   chmod g+wrX /opt/app-root/src/packrat/
 
-# Drop the root user and make the content of /opt/app-root owned by user 1001
-RUN chown -R 1001:1001 /opt/app-root
+### Setup user for build execution and application runtime
+### https://github.com/RHsyseng/container-rhel-examples/blob/master/starter-arbitrary-uid/Dockerfile.centos7
+ENV APP_ROOT=/opt/app-root
+ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
+COPY bin/ ${APP_ROOT}/bin/
+RUN chmod -R u+x ${APP_ROOT}/bin && \
+    chgrp -R 0 ${APP_ROOT} && \
+    chmod -R g=u ${APP_ROOT} /etc/passwd
 
-# Set the default user for the image, the user itself was created in the base image
-USER 1001
+# openshift best practice is to use a number not a name this is user shiny
+USER 998
 
-# Specify the ports the final image will expose
-EXPOSE 3838
-
-# Set the default CMD to print the usage of the image, if somebody does docker run
-CMD ["usage"]
+### Wrapper to allow user name resolution openshift will actually use a random user number so you need group permissions
+### https://github.com/RHsyseng/container-rhel-examples/blob/master/starter-arbitrary-uid/Dockerfile.centos7
+ENTRYPOINT [ "uid_entrypoint" ]
+CMD run
