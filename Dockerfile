@@ -40,8 +40,8 @@ RUN mkdir -p /var/lib/shiny-server/bookmarks && \
   chmod g+wrX /var/log/shiny-server 
 
 ## Also touch the packrat folder which is backed up and restored between incremental builds (use s2i with --incremental)
-RUN mkdir -p /opt/app-root/src/packrat/ && \
-  chown default:0 /opt/app-root/src/packrat/ && \
+RUN id && echo " " && whoami && mkdir -p /opt/app-root/src/packrat/ && \
+  chgrp -R 0 /opt/app-root/src/packrat/ && \
   chmod g+wrX /opt/app-root/src/packrat/
 
 ### Setup user for build execution and application runtime
