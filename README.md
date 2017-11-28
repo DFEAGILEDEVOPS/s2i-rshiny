@@ -47,3 +47,5 @@ Deploy your own R Shiny website onto Openshift V3 using this s2i image:
 ```
 oc new-app dfeagiledevops/s2i-rshiny~https://github.com/DFEAGILEDEVOPS/schools-workforce-benchmarking.git
 ```
+
+That used to give a service and a route but if you just get a build config out of it you can add a service by looking at the command line tools hint on the console to get an `oc login xxxx` auth token then `oc project whatever` then `oc create -f - < service.json`. Alternatively you can open the `service.json` and paste it via the `Add to Project / Import YAML / JSON` on the web console. Finally expose the service with `oc expose svc/schools-workforce-benchmarking --hostname=www.example.com1`.
